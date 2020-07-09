@@ -1,7 +1,7 @@
 .div_test{
     background-color: #0f78bf;
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
 }
 
 * {
@@ -171,9 +171,11 @@ nav a:hover{
 
 
 
-
-
-/* contact us */
+/* -----------------------------presentation------------------------------------------ */
+.presentation-section{
+    padding: 10%;
+}
+/*---------------------------- contact us ------------------------------------------------*/
 .contact-form{
     display: flex;
     flex-direction: column;
