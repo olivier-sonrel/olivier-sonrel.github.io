@@ -6,11 +6,24 @@
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" media="screen and (min-width: 641px)" href="css/screen-style.css" type="text/css" />
         <link rel="stylesheet" media="screen and (max-width: 640px)" href="css/mobile-style.css" type="text/css" />
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+        <script type="text/javascript">(function(){emailjs.init('user_l4bXqEQv7nGZ7wHMnR9dB');})();</script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // generate the contact number value
+                    this.contact_number.value = Math.random() * 100000 | 0;
+                    emailjs.sendForm('contact_service', 'contact_form', this);
+                });
+            }
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <title>Porfolio Olivier Sonrel</title>
 </head>
 <body class="flexFull">
 
-    <section id="accueil" class="flex">
+    <section id="accueil" class="flex nasa-background">
         
 <button class="previous-button"></button>
     <div class="scene">
@@ -37,27 +50,6 @@ N’hésitez pas à me <a href="">contacter.</a>. Ainsi qu’a télécharger <a 
 
                 </a>
             </div>
-
-            <div class="carousel__cell celRealisation">
-                <a href="#realisation">
-                    
-    <h1>realisation</h1>
-                </a>
-            </div>
-
-            <div class="carousel__cell celActivite">
-                <a href="#activite">
-                    <h1>activite</h1>
-<div href="#presentation" class="div_test">
-    <p>
-        kjyhfliutgùqdsrfgklhùolqesighfpùoergphqelghdpor    
-    </p>
-    
-    <a href="#presentation">strjsrtj</a>
-</div>
-                </a>
-            </div>
-
             <div class="carousel__cell celCompetence">
                 <a href="#competence">
                     <div id="sun2">
@@ -66,20 +58,24 @@ N’hésitez pas à me <a href="">contacter.</a>. Ainsi qu’a télécharger <a 
                 </a>
             </div>
 
+            <div class="carousel__cell celRealisation">
+                <a href="#realisation">
+                    <!-- todo -->
+                </a>
+            </div>
+
+            <div class="carousel__cell celActivite">
+                <a href="#activite">
+                    <div class="container">
+
+</div>
+                </a>
+            </div>
+
+
             <div class="carousel__cell celContact">
                 <a href="#contact">
-                    <div class="container">
-    <div class="cont-header">
-        <h2>Démarrons un projet ensemble, n’hésitez pas à me contacter</h2>
-    </div>
-    <div class="cont-line"></div>
-    <form name="contact-form" class="contact-form" action="index.html" method="post">
-        <input type="text" name="" placeholder="Votre Nom..."value="">
-        <input type="email" name="" placeholder="Votre mail..." value="">
-        <textarea name="name" placeholder="Expliquez-moi donc ce que vous voulez..."rows="8" cols="50"></textarea>
-        <input type="submit" name="" value="Envoyer">
-    </form>
-</div>
+                    <!-- php require ('templates/contact.php');  -->
                 </a>
             </div>
         </div>
@@ -96,7 +92,6 @@ N’hésitez pas à me <a href="">contacter.</a>. Ainsi qu’a télécharger <a 
         <a class="presentation mobile-none" href="#">Accueil</a>
         <a class="presentation menu-item" href="#presentation">Présentation</a>
         <a class="realisation menu-item" href="#realisation">Réalisation</a>
-        <a class="activite menu-item" href="#activite">Activités</a>
         <a class="competence menu-item" href="#competence">Compétences</a>
         <a class="contact menu-item" href="#contact">Contact</a>
         <a class="menu-item" href="/images/cvsonrel.pdf" download><span>Mon</Span> CV</a>
@@ -104,12 +99,12 @@ N’hésitez pas à me <a href="">contacter.</a>. Ainsi qu’a télécharger <a 
 
     </header>
 
-<main class="slider-wrap">
+<main class="slider-wrap mobile-none">
 <div id="slider" class="slider">
     <div class="holder">
         <div class="slide-wrapper">
-        <section id="presentation" class="flexCol slide">
-            <h1>presentation</h1>
+            <section id="presentation" class="flexCol slide">
+                <h1>presentation</h1>
 <div class="presentation-section">
     <p>
     Passionné de programmation, je suis, actuellement, une formation à l’IT-academy, où j’ai pu développer mes compétences dans différentes technologies web, qu’elles soient Frontend , comme Backend. Etant aussi particulièrement attiré par l’univers de l’IoT, je programme aussi en C, C++ et Python.
@@ -119,73 +114,100 @@ N’hésitez pas à me <a href="">contacter.</a>. Ainsi qu’a télécharger <a 
     </p>
 </div>
 
-        </section>
-    </div>
+            </section>
+        </div>
     
         <div class="slide-wrapper">
-        <section id="realisation" class="flexCol slide">
-            
-    <h1>realisation</h1>
-   
-        </section>
-    </div>
+            <section id="realisation" class="flexCol slide">
+                <div class="title flex">
+            <h1>Tape Choco !</h1>
+            <div class="flex">
+                <p>Temps restant : <span id="time"></span></p>
+                <button id="startGame">Start</button>
+                <p>Score : <span id="score"></span></p>
+            </div>
+        </div>
+        <div id="boardgame" class="flex"></div>
+        <div id="victory" class="none square">
+            <p>Vous avez gagné !</p>
+        </div>
+        <div id="defeat" class="none square">
+            <p>Vous avez perdu !</p>
+        </div>   
+            </section>
+        </div>
     
-        <div class="slide-wrapper">
-        <section id="activite" class="flexCol slide">
-            <h1>activite</h1>
-<div href="#presentation" class="div_test">
-    <p>
-        kjyhfliutgùqdsrfgklhùolqesighfpùoergphqelghdpor    
-    </p>
-    
-    <a href="#presentation">strjsrtj</a>
+        <!-- <div class="slide-wrapper">
+            <section id="activite" class="flexCol slide">
+                <div class="container">
+
 </div>
-        </section>
-    </div>
+            </section>
+        </div> -->
     
         <div class="slide-wrapper">
-        <section id="competence" class="flexCol slide">
-            
+            <section id="competence" class="flexCol slide">
+                
     <h1>competence</h1>
-    <div id="sun">
+    <div id="sun" class="mobile-none">
         <svg id="svg1" width="960" height="960" font-family="sans-serif" font-size="10"></svg>
     </div>
-        </section>
+    <div id="sun" class="screen-none">
+        <svg id="svg3" width="960" height="960" font-family="sans-serif" font-size="10"></svg>
     </div>
+            </section>
+        </div>
+
         <div class="slide-wrapper">
-        <section id="contact" class="flexCol slide">
-            <div class="container">
+            <section id="contact" class="flexCol slide">
+                <div class="container">
     <div class="cont-header">
         <h2>Démarrons un projet ensemble, n’hésitez pas à me contacter</h2>
     </div>
     <div class="cont-line"></div>
-    <form name="contact-form" class="contact-form" action="index.html" method="post">
+    <!-- <form name="contact-form" class="contact-form" action="mailto:olivier.sonrel@gmail.com" method="post">
         <input type="text" name="" placeholder="Votre Nom..."value="">
         <input type="email" name="" placeholder="Votre mail..." value="">
         <textarea name="name" placeholder="Expliquez-moi donc ce que vous voulez..."rows="8" cols="50"></textarea>
-        <input type="submit" name="" value="Envoyer">
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">  
+    </form> -->
+    <form id="contact-form">
+        <input type="hidden" name="contact_number">
+        <label>Name</label>
+        <input type="text" name="user_name">
+        <label>Email</label>
+        <input type="email" name="user_email">
+        <label>Message</label>
+        <textarea name="message"></textarea>
+        <div class="g-recaptcha" data-sitekey="6LdNncMZAAAAAGUr-7ZmGMoxD6oMewAlbu1zIhmO"></div>
+      <br/>
+        <input type="submit" value="Send">
     </form>
 </div>
-        </section>
-    </div>
+            </section>
+        </div>
     </div>
 </div>
 
 
 </main>
 
-<footer>
+<footer class="mobile-none">
     <h1>footer</h1>
 
 </footer>
 
 <script src="scripts/jquery.js"></script>
+<script src="scripts/apod.js"></script>
 <script src="scripts/suivi.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="competence/scale.js"></script>
 <script src="competence/d31.js" charset="utf-8"></script>
 <script src="competence/d32.js" charset="utf-8"></script>
+<script src="competence/d33.js" charset="utf-8"></script>
 <script src="scripts/carousel.js"></script>
 <script src="scripts/slider.js"></script>
+<script src="scripts/real.js"></script>
 </body>
 </html>
